@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('effortlogApp', [])
+angular.module('effortlogApp', ['ui'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
@@ -11,3 +11,4 @@ angular.module('effortlogApp', [])
         redirectTo: '/'
       });
   });
+

@@ -1,1 +1,47 @@
 /* Will be compiled down to a single stylesheet with your sass files */
+#goals, #tasks, #comment {
+  width: 220px;
+}
+
+#effortinput {
+  margin: 0;
+  list-style: none;
+  white-space: nowrap;
+  padding: 10px 10px 0;
+  margin-bottom: 10px;
+  background-color: #eeeeee;
+  -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
+}
+
+#effortinput li {
+  display: inline;
+  vertical-align: top;
+  font-size: 14px;
+}
+
+.ui-reset {
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  right: 4px;
+  top: 8px;
+
+  font-size: 1px;
+  text-decoration: none;
+
+  border: 0;
+  background: url('/components/select2/select2.png') right top no-repeat;
+  cursor: pointer;
+  outline: 0;
+}
+
+#comment {
+  padding-right: 16px;
+}
+
+#start, #end {
+  width: 5ex;
+}
+

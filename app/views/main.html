@@ -1,9 +1,61 @@
-<div class="hero-unit">
-  <h1>'Allo, 'Allo!</h1>
-  <p>You now have</p>
-  <ul>
-      <li ng-repeat="thing in awesomeThings">{{thing}}</li>
+<h1>Effortlog <small>(beta)</small></h1>
+<div ng-controller="EffortCtrl">
+
+  <ul id="effortinput">
+    <li>
+      <div class="input-append bootstrap-timepicker">
+        <input id="start" type="text" class="input-small" ng-model="start" ui-jq="timepicker"
+          data-template="false" data-minute-step="5" data-show-inputs="false" data-show-meridian="false"
+        >
+        <span class="add-on"><i class="icon-time"></i></span>
+      </div> 
+    </li>
+    <li>
+      <div class="input-append bootstrap-timepicker">
+        <input id="end" type="text" class="input-small" ng-model="start" ui-jq="timepicker"
+          data-template="false" data-minute-step="5" data-show-inputs="false" data-show-meridian="false"
+        >
+        <span class="add-on"><i class="icon-time"></i></span>
+      </div> 
+    </li>
+    <li>
+      <select id="goals" ui-select2="" data-placeholder="Select a goal" ng-model="goal">
+        <option value=""></option>
+        <option ng-repeat="goal in goals">
+          {{goal.name}}
+        </option>
+      </select>
+    </li>
+    <li>
+      <select id="tasks" ui-select2="" data-placeholder="Select a task" ng-model="task">
+        <option value=""></option>
+        <option ng-repeat="task in tasks">
+          {{task.name}}
+        </option>
+      </select>
+    </li>
+    <li>
+      <input id="comment" type="text" ng-model="comment" placeholder="Comment" ui-reset>
+    </li>
+    <li>
+      <button type="button" class="btn">Book</button>
+    </li>
   </ul>
-  <p>installed.</p>
-  <h3>Enjoy coding! - Yeoman</h3>
+
+  <table class="table table-striped">
+    <tr>
+      <th>Start</th>
+      <th>End</th>
+      <th>Goal</th>
+      <th>Task</th>
+      <th>Comment</th>
+    </tr>
+    <tr ng-repeat="effort in efforts">
+      <td>{{effort.start}}</td>
+      <th>{{effort.end}}</th>
+      <th>{{effort.goal}}</th>
+      <th>{{effort.task}}</th>
+      <th>{{effort.comment}}</th>
+    </tr>
+  </table>
 </div>
