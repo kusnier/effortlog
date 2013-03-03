@@ -3,6 +3,17 @@
 
 angular.module('effortlogApp')
   .controller('EffortCtrl', function ($scope) {
+    var formatTime = function(hour, minute) {
+      hour = hour < 10 ? '0' + hour : hour;
+      minute = minute < 10 ? '0' + minute : minute;
+      return hour + ':' + minute;
+    };
+    var startTime = new Date();
+    var endTime = new Date(startTime.getTime() + 5*60000);
+
+    $scope.start = formatTime(startTime.getHours(), startTime.getMinutes());
+    $scope.end = formatTime(endTime.getHours(), endTime.getMinutes());
+
     $scope.goals = [
       {name: 'Customer 1', description: 'Customer 1 in Berlin.', mnemonic: 'cst1', url: 'https://customer1.example.com'},
       {name: 'Customer 2', description: 'Customer 2 in Bern.', mnemonic: 'cst2', url: 'https://customer2.example.com'},
