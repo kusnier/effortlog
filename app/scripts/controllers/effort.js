@@ -44,21 +44,30 @@ angular.module('effortlogApp')
       {name: 'Travel', description: '', mnemonic: 'travel'},
     ];
     $scope.efforts = [
-      {start: '10:00', end: '11:00', goal: 'projectx', task: 'dev', comment: "no" },
-      {start: '11:00', end: '12:00', goal: 'projectx', task: 'bug', comment: "#12" },
-      {start: '12:00', end: '13:00', goal: 'projectx', task: 'bug', comment: "#13" },
-      {start: '13:00', end: '15:00', goal: 'projectx', task: 'bug', comment: "#14" }
+      {id: uuid.v4(), start: '10:00', end: '11:00', goal: 'projectx', task: 'dev', comment: "no" },
+      {id: uuid.v4(), start: '11:00', end: '12:00', goal: 'projectx', task: 'bug', comment: "#12" },
+      {id: uuid.v4(), start: '12:00', end: '13:00', goal: 'projectx', task: 'bug', comment: "#13" },
+      {id: uuid.v4(), start: '13:00', end: '15:00', goal: 'projectx', task: 'bug', comment: "#14" }
     ];
-    $scope.addBooking = function() {
+    $scope.addEffort = function() {
       var effort= {
+        id:       uuid.v4(),
         start:    $scope.start,
         end:      $scope.end,
         goal:     $scope.goal,
         task:     $scope.task,
         comment:  $scope.comment
       };
-      console.log($scope.start);
+      console.log(effort);
       $scope.efforts.push(effort);
+    }
+    $scope.deleteEffort = function(id) {
+      for (var idx = $scope.efforts.length - 1; idx >= 0; idx--){
+        if ($scope.efforts[idx]['id'] == id) {
+          $scope.efforts.splice(idx, 1);
+          return;
+        }
+      };
     }
   }
 ).value('ui.config', {
