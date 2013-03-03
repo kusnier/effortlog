@@ -49,6 +49,17 @@ angular.module('effortlogApp')
       {start: '12:00', end: '13:00', goal: 'projectx', task: 'bug', comment: "#13" },
       {start: '13:00', end: '15:00', goal: 'projectx', task: 'bug', comment: "#14" }
     ];
+    $scope.addBooking = function() {
+      var effort= {
+        start:    $scope.start,
+        end:      $scope.end,
+        goal:     $scope.goal,
+        task:     $scope.task,
+        comment:  $scope.comment
+      };
+      console.log($scope.start);
+      $scope.efforts.push(effort);
+    }
   }
 ).value('ui.config', {
     select2: {
