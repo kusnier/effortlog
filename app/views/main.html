@@ -49,6 +49,7 @@
       <th>Goal</th>
       <th>Task</th>
       <th>Comment</th>
+      <th></th>
     </tr>
     <tr ng-repeat="effort in efforts">
       <td>{{effort.start}}</td>
@@ -56,6 +57,12 @@
       <th>{{effort.goal}}</th>
       <th>{{effort.task}}</th>
       <th>{{effort.comment}}</th>
+      <th>
+        <div class="pull-right el-actionbuttons">
+          <button class="btn btn-mini" data-method="delete" data-remote="" >Edit</button>
+          <button class="btn btn-mini btn-danger" ng-click="deleteEffort(effort.id)">Delete</button>
+        </div>
+      </th>
     </tr>
   </table>
 </div>

@@ -45,3 +45,10 @@
   width: 5ex;
 }
 
+.el-actionbuttons {
+  visibility: hidden;
+}
+
+tr:hover .el-actionbuttons {
+  visibility: visible;
+}
