@@ -25,24 +25,20 @@
     <li>
       <select id="goals" ui-select2="" data-placeholder="Select a goal" ng-model="goal">
         <option value=""></option>
-        <option ng-repeat="goal in goals">
-          {{goal.name}}
-        </option>
+        <option ng-repeat="goal in goals" value="{{goal.mnemonic}}">{{goal.name}}</option>
       </select>
     </li>
     <li>
       <select id="tasks" ui-select2="" data-placeholder="Select a task" ng-model="task">
         <option value=""></option>
-        <option ng-repeat="task in tasks">
-          {{task.name}}
-        </option>
+        <option ng-repeat="task in tasks" value="{{task.mnemonic}}">{{task.name}}</option>
       </select>
     </li>
     <li>
       <input id="comment" type="text" ng-model="comment" placeholder="Comment" ui-reset>
     </li>
     <li>
-      <button type="button" class="btn">Book</button>
+      <button type="button" class="btn" ng-click="addEffort()">Add</button>
     </li>
   </ul>
 
