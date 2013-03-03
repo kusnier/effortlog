@@ -3,18 +3,22 @@
 
   <ul id="effortinput">
     <li>
-      <div class="input-append bootstrap-timepicker">
-        <input id="start" type="text" class="input-small" ng-model="start" ui-jq="timepicker"
-          data-template="false" data-minute-step="5" data-show-inputs="false" data-show-meridian="false"
-        >
+      <div class="input-append">
+        <span class="bootstrap-timepicker">
+          <input b-timepicker id="start" type="text" class="input-small" ng-model="start"
+            data-template="false" data-minute-step="1" data-show-inputs="false" data-show-meridian="false"
+          >
+        </span>
         <span class="add-on"><i class="icon-time"></i></span>
-      </div> 
+      </div>
     </li>
     <li>
-      <div class="input-append bootstrap-timepicker">
-        <input id="end" type="text" class="input-small" ng-model="end" ui-jq="timepicker"
-          data-template="false" data-minute-step="5" data-show-inputs="false" data-show-meridian="false"
-        >
+      <div class="input-append">
+        <span class="bootstrap-timepicker">
+          <input b-timepicker id="end" type="text" class="input-small" ng-model="end"
+            data-template="false" data-minute-step="1" data-show-inputs="false" data-show-meridian="false"
+          >
+        </span>
         <span class="add-on"><i class="icon-time"></i></span>
       </div> 
     </li>
