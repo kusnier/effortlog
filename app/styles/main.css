@@ -3,7 +3,7 @@
   width: 220px;
 }
 
-#effortinput {
+.effortinput {
   margin: 0;
   list-style: none;
   white-space: nowrap;
@@ -15,7 +15,13 @@
           border-radius: 6px;
 }
 
-#effortinput li {
+.effortinput li {
+  display: inline;
+  vertical-align: top;
+  font-size: 14px;
+}
+
+.effortedit li {
   display: inline;
   vertical-align: top;
   font-size: 14px;
@@ -41,7 +47,7 @@
   padding-right: 16px;
 }
 
-#start, #end {
+.el-timefield {
   width: 5ex;
 }
 
