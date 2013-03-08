@@ -68,31 +68,8 @@ angular.module('effortlogApp')
         }
       };
     }
-    $scope.editEffort = function(id) {
-      for (var idx = $scope.efforts.length - 1; idx >= 0; idx--){
-        if ($scope.efforts[idx]['id'] == id) {
-          var effort = $scope.efforts[idx];
-          $scope.editId      = effort.id;
-          $scope.editStart   = effort.start;
-          $scope.editEnd     = effort.end;
-          $scope.editGoal    = effort.goal;
-          $scope.editTask    = effort.task;
-          $scope.editComment = effort.comment;
-          return;
-        }
-      };
-    }
-    $scope.updateEffort = function(id) {
-      for (var idx = $scope.efforts.length - 1; idx >= 0; idx--){
-        if ($scope.efforts[idx]['id'] == id) {
-          $scope.efforts[idx]['start']   = $scope.editStart;
-          $scope.efforts[idx]['end']     = $scope.editEnd;
-          $scope.efforts[idx]['goal']    = $scope.editGoal;
-          $scope.efforts[idx]['task']    = $scope.editTask;
-          $scope.efforts[idx]['comment'] = $scope.editComment;
-          return;
-        }
-      };
+    $scope.editEffort = function(effort) {
+      $scope.edit = effort;
     }
   }
 ).value('ui.config', {
