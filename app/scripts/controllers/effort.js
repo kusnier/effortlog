@@ -71,6 +71,11 @@ angular.module('effortlogApp')
     $scope.editEffort = function(effort) {
       $scope.edit = effort;
     }
+    $scope.isAddDisabled = function() {
+      return $scope.newEffort.$invalid || $scope.start >= $scope.end;
+    };
+    $scope.startPattern = /^\d\d:\d\d$/;
+    $scope.endPattern = /^(?!00:00)(\d\d:\d\d)$/;
   }
 ).value('ui.config', {
     select2: {
