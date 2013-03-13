@@ -30,6 +30,7 @@ angular.module('effortlogApp')
         for (var idx = efforts.length - 1; idx >= 0; idx--) {
           if (efforts[idx] === effort) {
             efforts.splice(idx, 1);
+            this.saveToLocalStorage();
             return;
           }
         }
