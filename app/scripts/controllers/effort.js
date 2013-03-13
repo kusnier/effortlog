@@ -2,7 +2,7 @@
 
 
 angular.module('effortlogApp')
-  .controller('EffortCtrl', function ($scope) {
+  .controller('EffortCtrl', function ($scope, effortService) {
     var formatTime = function(hour, minute) {
       hour = hour < 10 ? '0' + hour : hour;
       minute = minute < 10 ? '0' + minute : minute;
@@ -43,51 +43,39 @@ angular.module('effortlogApp')
       {name: 'Stand-up', description: 'Stand-up meeting', mnemonic: 'standup'},
       {name: 'Travel', description: '', mnemonic: 'travel'},
     ];
-    $scope.efforts = [
-      {id: uuid.v4(), start: '10:00', end: '11:00', goal: 'projectx', task: 'dev', comment: "no" },
-      {id: uuid.v4(), start: '11:00', end: '12:00', goal: 'projectx', task: 'bug', comment: "#12" },
-      {id: uuid.v4(), start: '12:00', end: '13:00', goal: 'projectx', task: 'bug', comment: "#13" },
-      {id: uuid.v4(), start: '13:00', end: '15:00', goal: 'projectx', task: 'bug', comment: "#14" }
-    ];
+    $scope.efforts = effortService.getEfforts();
     $scope.addEffort = function() {
       var effort= {
-        id:       uuid.v4(),
         start:    $scope.start,
         end:      $scope.end,
         goal:     $scope.goal,
         task:     $scope.task,
         comment:  $scope.comment
       };
-      $scope.efforts.push(effort);
-    }
-    $scope.deleteEffort = function(id) {
-      for (var idx = $scope.efforts.length - 1; idx >= 0; idx--){
-        if ($scope.efforts[idx]['id'] == id) {
-          $scope.efforts.splice(idx, 1);
-          return;
-        }
-      };
-    }
+      effortService.addEffort(effort);
+    };
+    $scope.deleteEffort = function(effort) {
+      effortService.deleteEffort(effort);
+    };
     $scope.editEffort = function(effort) {
       $scope.edit = effort;
-    }
+    };
     $scope.saveToLocalStorage = function() {
-      window.localStorage.setItem('efforts', angular.toJson($scope.efforts))
-    }
+      effortService.saveToLocalStorage();
+    };
     $scope.loadFromLocalStorage = function() {
-      $scope.efforts= angular.fromJson(window.localStorage.getItem('efforts'));
-    }
+      $scope.efforts = effortService.loadFromLocalStorage();
+    };
     $scope.isAddDisabled = function() {
       return $scope.newEffort.$invalid || $scope.start >= $scope.end;
     };
     $scope.startPattern = /^\d\d:\d\d$/;
     $scope.endPattern = /^(?!00:00)(\d\d:\d\d)$/;
   }
-).value('ui.config', {
+  ).value('ui.config', {
     select2: {
       allowClear: true,
       width: 'resolve'
     }
-})
-;
+  });
 
