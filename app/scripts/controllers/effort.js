@@ -71,6 +71,12 @@ angular.module('effortlogApp')
     $scope.editEffort = function(effort) {
       $scope.edit = effort;
     }
+    $scope.saveToLocalStorage = function() {
+      window.localStorage.setItem('efforts', angular.toJson($scope.efforts))
+    }
+    $scope.loadFromLocalStorage = function() {
+      $scope.efforts= angular.fromJson(window.localStorage.getItem('efforts'));
+    }
     $scope.isAddDisabled = function() {
       return $scope.newEffort.$invalid || $scope.start >= $scope.end;
     };
