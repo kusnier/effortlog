@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('effortlogApp', ['ui', 'bTimepicker'])
+angular.module('effortlogApp', ['ui', 'bTimepicker', 'LocalStorageModule'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
