@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('effortlogApp')
-  .factory('effortService', function () {
+  .factory('effortService', function (localStorageService) {
     // Service logic
 
-    var efforts= angular.fromJson(window.localStorage.getItem('efforts'));
+    var efforts= angular.fromJson(localStorageService.get('efforts'));
     if (efforts === null) {
 
       // Add sample efforts
@@ -36,10 +36,10 @@ angular.module('effortlogApp')
         }
       },
       saveToLocalStorage: function() {
-        window.localStorage.setItem('efforts', angular.toJson(efforts));
+        localStorageService.add('efforts', angular.toJson(efforts));
       },
       loadFromLocalStorage: function() {
-        efforts= angular.fromJson(window.localStorage.getItem('efforts'));
+        efforts= angular.fromJson(localStorageService.get('efforts'));
         return efforts;
       }
     };
