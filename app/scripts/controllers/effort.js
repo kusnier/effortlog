@@ -46,6 +46,22 @@ angular.module('effortlogApp')
     };
     $scope.startPattern = /^\d\d:\d\d$/;
     $scope.endPattern = /^(?!00:00)(\d\d:\d\d)$/;
+
+
+    // Check for changes on efforts in localStorage
+    var handleStorage= function(e) {
+      if (!e) { e = window.event; }
+      // Check if i can use apply in other places too
+      $scope.$apply(function(){ $scope.loadFromLocalStorage(); });
+    };
+
+    // Localstorage When the setItem(), removeItem(), and clear() methods are invoked, events are fired on the Window objects of other Documents that can access the newly stored or removed data, as defined in the sections on the sessionStorage and localStorage attributes.
+    if (window.addEventListener) {
+      window.addEventListener('storage', handleStorage, false);
+    } else {
+      window.attachEvent('onstorage', handleStorage);
+    }
+
   }
   ).value('ui.config', {
     select2: {

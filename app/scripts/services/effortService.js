@@ -6,7 +6,7 @@ angular.module('effortlogApp')
 
     var efforts= angular.fromJson(window.localStorage.getItem('efforts'));
     if (efforts === null) {
-      
+
       // Add sample efforts
       efforts = [
         {id: uuid.v4(), start: '10:00', end: '11:00', goal: 'projectx', task: 'dev', comment: 'no' },
