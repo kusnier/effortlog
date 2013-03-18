@@ -34,6 +34,7 @@ angular.module('effortlogApp')
             return;
           }
         }
+        this.saveToLocalStorage();
       },
       saveToLocalStorage: function() {
         localStorageService.add('efforts', angular.toJson(efforts));

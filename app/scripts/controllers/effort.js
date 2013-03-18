@@ -69,4 +69,3 @@ angular.module('effortlogApp')
       width: 'resolve'
     }
   });
-
