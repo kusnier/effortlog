@@ -13,6 +13,7 @@ angular.module('effortlogApp')
 
     $scope.start = formatTime(startTime.getHours(), startTime.getMinutes());
     $scope.end = formatTime(endTime.getHours(), endTime.getMinutes());
+    $scope.date = new Date();
 
     $scope.goals = goalService.getGoals();
 
@@ -67,5 +68,9 @@ angular.module('effortlogApp')
     select2: {
       allowClear: true,
       width: 'resolve'
+    },
+    date: {
+      autoSize: true,
+      dateFormat: 'yy-mm-dd'
     }
   });

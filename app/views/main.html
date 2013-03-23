@@ -5,6 +5,13 @@
 <div ng-controller="EffortCtrl">
 
   <form name="newEffort">
+    <div class="el-timeselect pull-right">
+      <div class="input-append">
+        <input class="input-small" type="text" ng-model="date" ui-date />
+        <span class="add-on"><i class="icon-calendar"></i></span>
+      </div>
+    </div>
+
     <ul class="effortinput">
       <li>
         <div class="input-append">
