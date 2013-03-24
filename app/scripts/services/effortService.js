@@ -8,22 +8,38 @@ angular.module('effortlogApp')
     if (efforts === null) {
 
       // Add sample efforts
-      efforts = [
-        {id: uuid.v4(), start: '10:00', end: '11:00', goal: 'projectx', task: 'dev', comment: 'no' },
-        {id: uuid.v4(), start: '11:00', end: '12:00', goal: 'projectx', task: 'bug', comment: '#12' },
-        {id: uuid.v4(), start: '12:00', end: '13:00', goal: 'projectx', task: 'bug', comment: '#13' },
-        {id: uuid.v4(), start: '13:00', end: '15:00', goal: 'projectx', task: 'bug', comment: '#14' }
-      ];
+      efforts = {
+        '2013-03-24': [
+          {id: uuid.v4(), start: '10:00', end: '11:00', goal: 'projectx', task: 'dev', comment: 'no' },
+          {id: uuid.v4(), start: '11:00', end: '12:00', goal: 'projectx', task: 'bug', comment: '#12' },
+          {id: uuid.v4(), start: '12:00', end: '13:00', goal: 'projectx', task: 'bug', comment: '#13' },
+          {id: uuid.v4(), start: '13:00', end: '15:00', goal: 'projectx', task: 'bug', comment: '#14' }
+        ],
+        '2013-03-25': [
+          {id: uuid.v4(), start: '10:00', end: '11:00', goal: 'projectx', task: 'dev', comment: 'next day no' },
+          {id: uuid.v4(), start: '11:00', end: '12:00', goal: 'projectx', task: 'bug', comment: 'next day #12' },
+          {id: uuid.v4(), start: '12:00', end: '13:00', goal: 'projectx', task: 'bug', comment: 'next day #13' },
+          {id: uuid.v4(), start: '13:00', end: '15:00', goal: 'projectx', task: 'bug', comment: 'next day #14' }
+        ]
+      };
+    }
+
+    function getDateIndex(d) {
+      function pad(n){return n<10 ? '0'+n : n;}
+      return d.getFullYear() + '-' + pad(d.getMonth()+1) + '-' + pad(d.getDate());
     }
 
     // Public API here
     return {
-      getEfforts: function () {
-        return efforts;
+      getEfforts: function (date) {
+        return efforts[getDateIndex(date)];
       },
-      addEffort: function(effort) {
+      addEffort: function(effort, date) {
         effort.id= uuid.v4();
-        efforts.push(effort);
+        if (!angular.isArray(efforts[getDateIndex(date)])) {
+          efforts[getDateIndex(date)]= [];
+        }
+        efforts[getDateIndex(date)].push(effort);
         this.saveToLocalStorage();
       },
       deleteEffort: function(effort) {

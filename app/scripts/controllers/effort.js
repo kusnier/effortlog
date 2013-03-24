@@ -19,7 +19,10 @@ angular.module('effortlogApp')
 
     $scope.tasks = taskService.getTasks();
 
-    $scope.efforts = effortService.getEfforts();
+    $scope.fetchEfforts = function() {
+      $scope.efforts = effortService.getEfforts($scope.date);
+    };
+    $scope.fetchEfforts();
     $scope.addEffort = function() {
       var effort= {
         start:    $scope.start,
@@ -28,7 +31,7 @@ angular.module('effortlogApp')
         task:     $scope.task,
         comment:  $scope.comment
       };
-      effortService.addEffort(effort);
+      effortService.addEffort(effort, $scope.date);
     };
     $scope.deleteEffort = function(effort) {
       effortService.deleteEffort(effort);

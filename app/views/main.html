@@ -7,7 +7,7 @@
   <form name="newEffort">
     <div class="el-timeselect pull-right">
       <div class="input-append">
-        <input class="input-small" type="text" ng-model="date" ui-date />
+        <input class="input-small" type="text" ng-model="date" ui-date ng-change="fetchEfforts()"/>
         <span class="add-on"><i class="icon-calendar"></i></span>
       </div>
     </div>
@@ -49,7 +49,7 @@
         <input id="comment" type="text" ng-model="comment" placeholder="Comment" ui-reset>
       </li>
       <li>
-        <button type="button" class="btn" ng-click="addEffort()" ng-disabled="isAddDisabled()">Add</button>
+        <button type="button" class="btn btn-primary" ng-click="addEffort()" ng-disabled="isAddDisabled()">Add</button>
       </li>
     </ul>
   </form>
@@ -71,7 +71,7 @@
       <td>{{effort.comment}}</td>
       <td>
         <div class="pull-right el-actionbuttons btn-group">
-          <button class="btn btn-mini" data-toggle="modal" data-target="#editEffort" ng-click="editEffort(effort)">Edit</button>
+          <button class="btn btn-mini btn-inverse" data-toggle="modal" data-target="#editEffort" ng-click="editEffort(effort)">Edit</button>
           <button class="btn btn-mini btn-danger" ng-click="deleteEffort(effort)">Delete</button>
         </div>
       </td>
