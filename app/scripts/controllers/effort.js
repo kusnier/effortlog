@@ -83,5 +83,8 @@ angular.module('effortlogApp')
     date: {
       autoSize: true,
       dateFormat: 'yy-mm-dd'
+    },
+    jq: {
+      tooltip: { delay: 500 }
     }
   });

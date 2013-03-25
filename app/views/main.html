@@ -15,9 +15,9 @@
     <ul class="effortinput">
       <li>
         <div class="input-append">
-          <span class="bootstrap-timepicker">
-            <input b-timepicker id="start" type="text" class="el-timefield" ng-model="start" ng-pattern="startPattern" required
-              data-template="false" data-minute-step="1" data-show-inputs="false" data-show-meridian="false"
+          <span class="bootstrap-timepicker" title="Starting time" ui-jq="tooltip">
+            <input b-timepicker id="start" type="text" class="el-timefield" ng-model="start" ng-pattern="startPattern"
+              required data-template="false" data-minute-step="1" data-show-inputs="false" data-show-meridian="false"
             >
           </span>
           <span class="add-on"><i class="icon-time"></i></span>
@@ -25,9 +25,9 @@
       </li>
       <li>
         <div class="input-append">
-          <span class="bootstrap-timepicker">
-            <input b-timepicker id="end" type="text" class="el-timefield" ng-model="end" ng-pattern="endPattern" required
-              data-template="false" data-minute-step="1" data-show-inputs="false" data-show-meridian="false"
+          <span class="bootstrap-timepicker" title="End time" ui-jq="tooltip">
+            <input b-timepicker id="end" type="text" class="el-timefield" ng-model="end" ng-pattern="endPattern"
+              required data-template="false" data-minute-step="1" data-show-inputs="false" data-show-meridian="false"
             >
           </span>
           <span class="add-on"><i class="icon-time"></i></span>
