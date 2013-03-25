@@ -26,6 +26,14 @@ angular.module('effortlogApp')
     return {
       getTasks: function () {
         return tasks;
+      },
+      getTaskByMnemonic: function(mnemonic) {
+        for (var idx = tasks.length - 1; idx >= 0; idx--) {
+          var task= tasks[idx];
+          if (task.mnemonic === mnemonic) {
+            return task;
+          }
+        }
       }
     };
   });

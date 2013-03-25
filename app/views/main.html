@@ -66,8 +66,8 @@
     <tr ng-repeat="effort in efforts">
       <td>{{effort.start}}</td>
       <td>{{effort.end}}</td>
-      <td><span class="label label-info">{{effort.goal}}</span></td>
-      <td><span class="label label-info">{{effort.task}}</span></td>
+      <td><span class="label label-info" title="{{getGoalByMnemonic(effort.goal).name}}" data-placement="left" ui-jq="tooltip">{{effort.goal}}</span></td>
+      <td><span class="label label-info" title="{{getTaskByMnemonic(effort.task).name}}" data-placement="right" ui-jq="tooltip" >{{effort.task}}</span></td>
       <td>{{effort.comment}}</td>
       <td>
         <div class="pull-right el-actionbuttons btn-group">

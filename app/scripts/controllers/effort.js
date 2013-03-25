@@ -15,9 +15,17 @@ angular.module('effortlogApp')
     $scope.end = formatTime(endTime.getHours(), endTime.getMinutes());
     $scope.date = new Date();
 
+    // Load goals
     $scope.goals = goalService.getGoals();
+    $scope.getGoalByMnemonic = function(mnemonic) {
+      return goalService.getGoalByMnemonic(mnemonic);
+    };
 
+    // Load tasks
     $scope.tasks = taskService.getTasks();
+    $scope.getTaskByMnemonic = function(mnemonic) {
+      return taskService.getTaskByMnemonic(mnemonic);
+    };
 
     $scope.fetchEfforts = function() {
       $scope.efforts = effortService.getEfforts($scope.date);

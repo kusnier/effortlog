@@ -20,6 +20,14 @@ angular.module('effortlogApp')
     return {
       getGoals: function () {
         return goals;
+      },
+      getGoalByMnemonic: function(mnemonic) {
+        for (var idx = goals.length - 1; idx >= 0; idx--) {
+          var goal= goals[idx];
+          if (goal.mnemonic === mnemonic) {
+            return goal;
+          }
+        }
       }
     };
   });
