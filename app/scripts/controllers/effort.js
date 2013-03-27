@@ -51,7 +51,8 @@ angular.module('effortlogApp')
       effortService.saveToLocalStorage();
     };
     $scope.loadFromLocalStorage = function() {
-      $scope.efforts = effortService.loadFromLocalStorage();
+      effortService.loadFromLocalStorage();
+      $scope.fetchEfforts();
     };
     $scope.isAddDisabled = function() {
       return $scope.newEffort.$invalid || $scope.start >= $scope.end;
