@@ -42,7 +42,7 @@ angular.module('effortlogApp')
       effortService.addEffort(effort, $scope.date);
     };
     $scope.deleteEffort = function(effort) {
-      effortService.deleteEffort(effort);
+      effortService.deleteEffort(effort, $scope.date);
     };
     $scope.editEffort = function(effort) {
       $scope.edit = effort;

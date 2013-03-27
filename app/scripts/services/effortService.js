@@ -35,17 +35,19 @@ angular.module('effortlogApp')
         return efforts[getDateIndex(date)];
       },
       addEffort: function(effort, date) {
+        var dateIndex= getDateIndex(date);
         effort.id= uuid.v4();
-        if (!angular.isArray(efforts[getDateIndex(date)])) {
-          efforts[getDateIndex(date)]= [];
+        if (!angular.isArray(efforts[dateIndex])) {
+          efforts[dateIndex]= [];
         }
-        efforts[getDateIndex(date)].push(effort);
+        efforts[dateIndex].push(effort);
         this.saveToLocalStorage();
       },
-      deleteEffort: function(effort) {
-        for (var idx = efforts.length - 1; idx >= 0; idx--) {
-          if (efforts[idx] === effort) {
-            efforts.splice(idx, 1);
+      deleteEffort: function(effort, date) {
+        var dateIndex= getDateIndex(date);
+        for (var idx = efforts[dateIndex].length - 1; idx >= 0; idx--) {
+          if (efforts[dateIndex][idx] === effort) {
+            efforts[dateIndex].splice(idx, 1);
             this.saveToLocalStorage();
             return;
           }
