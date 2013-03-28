@@ -5,10 +5,12 @@
 <div ng-controller="EffortCtrl">
 
   <form name="newEffort">
-    <div class="el-timeselect pull-right">
-      <div class="input-append">
+          <div class="el-timeselect pull-right">
+      <div class="input-prepend input-append">
+        <a style="cursor:pointer;" ng-click="goToPrevioustDate();$event.stopPropagation();" class="add-on"><i class="icon-arrow-left"></i></a>
         <input class="input-small" type="text" ng-model="date" ui-date ng-change="fetchEfforts()"/>
         <span class="add-on"><i class="icon-calendar"></i></span>
+        <a style="cursor:pointer;" ng-click="goToNextDate();$event.stopPropagation();" class="add-on"><i class="icon-arrow-right"></i></a>
       </div>
     </div>
 

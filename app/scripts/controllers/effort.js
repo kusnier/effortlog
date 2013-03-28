@@ -2,11 +2,19 @@
 
 
 angular.module('effortlogApp')
-  .controller('EffortCtrl', function ($scope, effortService, goalService, taskService) {
+  .controller('EffortCtrl', function ($scope, $location, effortService, goalService, taskService) {
     var formatTime = function(hour, minute) {
       hour = hour < 10 ? '0' + hour : hour;
       minute = minute < 10 ? '0' + minute : minute;
       return hour + ':' + minute;
+    };
+    var formatDate = function(date) {
+      var year = date.getFullYear();
+      var month = date.getMonth()+1;
+      var day = date.getDate();
+      month = month < 10 ? '0' + month : month;
+      day = day < 10 ? '0' + day : day;
+      return year + '-' + month + '-' + day;
     };
     var startTime = new Date();
     var endTime = new Date(startTime.getTime() + 5*60000);
@@ -14,6 +22,24 @@ angular.module('effortlogApp')
     $scope.start = formatTime(startTime.getHours(), startTime.getMinutes());
     $scope.end = formatTime(endTime.getHours(), endTime.getMinutes());
     $scope.date = new Date();
+
+    $scope.goToNextDate = function() {
+      var nextDate = new Date($scope.date.getTime());
+      nextDate.setDate($scope.date.getDate()+1);
+      $location.search({date: formatDate(nextDate)});
+    };
+
+    $scope.goToPrevioustDate = function() {
+      var previousDate = new Date($scope.date.getTime());
+      previousDate.setDate($scope.date.getDate()-1);
+      $location.search({date: formatDate(previousDate)});
+    };
+
+    function readUrl(dateString) {
+      $scope.date = new Date(dateString);
+      $scope.fetchEfforts();
+    }
+    $scope.$watch(function() { return $location.search().date; }, readUrl);
 
     // Load goals
     $scope.goals = goalService.getGoals();
