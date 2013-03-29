@@ -23,6 +23,10 @@ angular.module('effortlogApp')
     $scope.end = formatTime(endTime.getHours(), endTime.getMinutes());
     $scope.date = new Date();
 
+    $scope.goToToday = function() {
+      $location.search({date: formatDate(new Date())});
+    };
+
     $scope.goToNextDate = function() {
       var nextDate = new Date($scope.date.getTime());
       nextDate.setDate($scope.date.getDate()+1);
@@ -36,6 +40,9 @@ angular.module('effortlogApp')
     };
 
     function readUrl(dateString) {
+      if (dateString === undefined) {
+        return;
+      }
       $scope.date = new Date(dateString);
       $scope.fetchEfforts();
     }
@@ -66,6 +73,7 @@ angular.module('effortlogApp')
         comment:  $scope.comment
       };
       effortService.addEffort(effort, $scope.date);
+      $scope.fetchEfforts();
     };
     $scope.deleteEffort = function(effort) {
       effortService.deleteEffort(effort, $scope.date);
