@@ -78,7 +78,7 @@
       <th>Comment</th>
       <th></th>
     </tr>
-    <tr ng-repeat="effort in efforts">
+    <tr ng-repeat="effort in efforts | orderBy: 'start'">
       <td>{{effort.start}}</td>
       <td>{{effort.end}}</td>
       <td><span class="label label-info" data-original-title="{{getGoalByMnemonic(effort.goal).name}}" data-placement="left" ui-jq="tooltip">{{effort.goal}}</span></td>
