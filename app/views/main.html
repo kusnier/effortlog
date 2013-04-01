@@ -27,49 +27,42 @@
     </div>
   </div>
 
-  <form name="newEffort">
-    <ul class="effortinput">
-      <li>
-        <div class="input-append">
-          <span class="bootstrap-timepicker" title="Starting time" ui-jq="tooltip">
-            <input b-timepicker id="start" type="text" class="el-timefield" ng-model="start" ng-pattern="startPattern"
-              required data-template="false" data-minute-step="1" data-show-inputs="false" data-show-meridian="false"
-            >
-          </span>
-          <span class="add-on"><i class="icon-time"></i></span>
-        </div>
-      </li>
-      <li>
-        <div class="input-append">
-          <span class="bootstrap-timepicker" title="End time" ui-jq="tooltip">
-            <input b-timepicker id="end" type="text" class="el-timefield" ng-model="end" ng-pattern="endPattern"
-              required data-template="false" data-minute-step="1" data-show-inputs="false" data-show-meridian="false"
-            >
-          </span>
-          <span class="add-on"><i class="icon-time"></i></span>
-        </div> 
-      </li>
-      <li>
-        <select id="goals" ui-select2="" data-placeholder="Select a goal" ng-model="goal" required>
-          <option value=""></option>
-          <option ng-repeat="goal in goals" value="{{goal.mnemonic}}">{{goal.name}}</option>
-        </select>
-      </li>
-      <li>
-        <select id="tasks" ui-select2="" data-placeholder="Select a task" ng-model="task" required>
-          <option value=""></option>
-          <option ng-repeat="task in tasks" value="{{task.mnemonic}}">{{task.name}}</option>
-        </select>
-      </li>
-      <li>
-        <input id="comment" type="text" ng-model="comment" placeholder="Comment" ui-reset>
-      </li>
-      <li>
-        <button type="button" class="btn btn-primary" ng-click="addEffort()" ng-disabled="isAddDisabled()">
-          <i class="icon-plus-sign icon-white"></i> Add
-        </button>
-      </li>
-    </ul>
+  <form class="form-inline" name="newEffort">
+    <div class="well well-small controls controls-row">
+      <div class="input-append">
+        <span class="bootstrap-timepicker" title="Starting time" ui-jq="tooltip">
+          <input b-timepicker id="start" type="text" class="el-timefield" ng-model="start" ng-pattern="startPattern"
+            required data-template="false" data-minute-step="1" data-show-inputs="false" data-show-meridian="false"
+          >
+        </span>
+        <span class="add-on"><i class="icon-time"></i></span>
+      </div>
+
+      <div class="input-append">
+        <span class="bootstrap-timepicker" title="End time" ui-jq="tooltip">
+          <input b-timepicker id="end" type="text" class="el-timefield" ng-model="end" ng-pattern="endPattern"
+            required data-template="false" data-minute-step="1" data-show-inputs="false" data-show-meridian="false"
+          >
+        </span>
+        <span class="add-on"><i class="icon-time"></i></span>
+      </div>
+
+      <select id="goals" ui-select2="" data-placeholder="Select a goal" ng-model="goal" required>
+        <option value=""></option>
+        <option ng-repeat="goal in goals" value="{{goal.mnemonic}}">{{goal.name}}</option>
+      </select>
+
+      <select id="tasks" ui-select2="" data-placeholder="Select a task" ng-model="task" required>
+        <option value=""></option>
+        <option ng-repeat="task in tasks" value="{{task.mnemonic}}">{{task.name}}</option>
+      </select>
+
+      <input id="comment" type="text" ng-model="comment" placeholder="Comment" ui-reset>
+
+      <button type="button" class="btn btn-primary" ng-click="addEffort()" ng-disabled="isAddDisabled()">
+        <i class="icon-plus-sign icon-white"></i> Add
+      </button>
+    </div>
   </form>
 
   <table class="table table-striped">
