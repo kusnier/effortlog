@@ -3,13 +3,13 @@
    <div class="navbar-inner">
     <a class="brand" href="#">Effortlog</a>
     <ul class="nav">
-      <li class="active"><a href="#">Home</a></li>
+      <li class="active"><a href="#"><i class="icon-home"></i> Home</a></li>
       <li class="divider-vertical"></li>
       <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Administrate <b class="caret"></b></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog"></i> Administrate <b class="caret"></b></a>
         <ul class="dropdown-menu">
-          <li class="disabled"><a href="#">Goals</a></li>
-          <li class="disabled"><a href="#">Tasks</a></li>
+          <li><a href="#"><i class="icon-flag"></i> Goals</a></li>
+          <li><a href="#"><i class="icon-tag"></i> Tasks</a></li>
         </ul>
       </li>
       <li class="divider-vertical"></li>
@@ -64,7 +64,9 @@
         <input id="comment" type="text" ng-model="comment" placeholder="Comment" ui-reset>
       </li>
       <li>
-        <button type="button" class="btn btn-primary" ng-click="addEffort()" ng-disabled="isAddDisabled()">Add</button>
+        <button type="button" class="btn btn-primary" ng-click="addEffort()" ng-disabled="isAddDisabled()">
+          <i class="icon-plus-sign icon-white"></i> Add
+        </button>
       </li>
     </ul>
   </form>
@@ -86,8 +88,13 @@
       <td>{{effort.comment}}</td>
       <td>
         <div class="pull-right el-actionbuttons btn-group">
-          <button class="btn btn-mini btn-inverse" data-toggle="modal" data-target="#editEffort" ng-click="editEffort(effort)">Edit</button>
-          <button class="btn btn-mini btn-danger" ng-click="deleteEffort(effort)">Delete</button>
+          <button class="btn btn-mini btn-inverse" data-toggle="modal" data-target="#editEffort"
+            ng-click="editEffort(effort)">
+            <i class="icon-edit icon-white"></i> Edit
+          </button>
+          <button class="btn btn-mini btn-danger" ng-click="deleteEffort(effort)">
+            <i class="icon-remove icon-white"></i> Delete
+          </button>
         </div>
       </td>
     </tr>
