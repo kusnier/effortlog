@@ -21,6 +21,7 @@
 
 .el-timefield {
   width: 5ex;
+  max-width: 5ex;
 }
 
 .el-actionbuttons {
