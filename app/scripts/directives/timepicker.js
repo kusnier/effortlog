@@ -1,5 +1,7 @@
-angular.module('bTimepicker', []).
-  directive('bTimepicker', function($timeout){
+'use strict';
+
+angular.module('effortlogApp')
+  .directive('timepicker', function () {
     return {
       require: '?ngModel',
       restrict: 'A',

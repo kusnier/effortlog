@@ -9,8 +9,8 @@ describe('Controller: EffortCtrl', function () {
     scope;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller) {
-    scope = {};
+  beforeEach(inject(function ($controller, $rootScope) {
+    scope = $rootScope.$new();
     EffortCtrl = $controller('EffortCtrl', {
       $scope: scope
     });
